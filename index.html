@@ -1,434 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- ✅ META VIEWPORT - Esencial para responsive móvil -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  
+  <title>AMG Financiaciones | Macarena Guijo Rodríguez</title>
+  <meta name="description" content="Agente financiera independiente en Sevilla. Hipotecas y préstamos con las mejores condiciones. Consulta gratuita.">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0;}
+    :root{--navy:#1B2E5E;--navy2:#243870;--gold:#B8932A;--gold2:#D4AC48;--gold3:#F0D080;--cream:#FDFAF4;--sand:#F5EDD6;--sand2:#EDE0C4;--white:#FFFFFF;--dark:#1A1A2E;--text:#2C2C2C;--textmid:#555566;--textlight:#888899;--border:rgba(184,147,42,0.2);--bordernav:rgba(184,147,42,0.15);}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes slideLeft{from{opacity:0;transform:translateX(30px);}to{opacity:1;transform:translateX(0);}}
+    @keyframes slideRight{from{opacity:0;transform:translateX(-30px);}to{opacity:1;transform:translateX(0);}}
+    @keyframes scaleIn{from{opacity:0;transform:scale(0.92);}to{opacity:1;transform:scale(1);}}
+    @keyframes goldPulse{0%,100%{opacity:0.4;}50%{opacity:1;}}
+    @keyframes menuSlide{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+    .anim-up{opacity:0;animation:fadeUp 0.7s ease forwards;}
+    .anim-left{opacity:0;animation:slideLeft 0.7s ease forwards;}
+    .anim-right{opacity:0;animation:slideRight 0.7s ease forwards;}
+    .anim-scale{opacity:0;animation:scaleIn 0.6s ease forwards;}
+    .d1{animation-delay:0.1s;}.d2{animation-delay:0.2s;}.d3{animation-delay:0.3s;}.d4{animation-delay:0.4s;}.d5{animation-delay:0.5s;}
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap');
-*{box-sizing:border-box;margin:0;padding:0;}
-:root{--navy:#1B2E5E;--navy2:#243870;--gold:#B8932A;--gold2:#D4AC48;--gold3:#F0D080;--cream:#FDFAF4;--sand:#F5EDD6;--sand2:#EDE0C4;--white:#FFFFFF;--dark:#1A1A2E;--text:#2C2C2C;--textmid:#555566;--textlight:#888899;--border:rgba(184,147,42,0.2);--bordernav:rgba(184,147,42,0.15);}
-html{scroll-behavior:smooth;}
-body{font-family:'Montserrat',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
-@keyframes slideLeft{from{opacity:0;transform:translateX(30px);}to{opacity:1;transform:translateX(0);}}
-@keyframes slideRight{from{opacity:0;transform:translateX(-30px);}to{opacity:1;transform:translateX(0);}}
-@keyframes scaleIn{from{opacity:0;transform:scale(0.92);}to{opacity:1;transform:scale(1);}}
-@keyframes goldPulse{0%,100%{opacity:0.4;}50%{opacity:1;}}
-@keyframes menuSlide{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
-.anim-up{opacity:0;animation:fadeUp 0.7s ease forwards;}
-.anim-left{opacity:0;animation:slideLeft 0.7s ease forwards;}
-.anim-right{opacity:0;animation:slideRight 0.7s ease forwards;}
-.anim-scale{opacity:0;animation:scaleIn 0.6s ease forwards;}
-.d1{animation-delay:0.1s;}.d2{animation-delay:0.2s;}.d3{animation-delay:0.3s;}.d4{animation-delay:0.4s;}.d5{animation-delay:0.5s;}
+    /* NAV */
+    nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:var(--white);border-bottom:1px solid var(--bordernav);position:sticky;top:0;z-index:1000;box-shadow:0 2px 16px rgba(27,46,94,0.07);}
+    .logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none;}
+    .logo-icon{width:36px;height:36px;flex-shrink:0;}
+    .logo-texts{display:flex;flex-direction:column;}
+    .logo-main{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);letter-spacing:0.05em;line-height:1.1;}
+    .logo-sub{font-size:0.56rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:2px;}
+    .nav-links{display:flex;align-items:center;gap:0.3rem;}
+    .nav-links a{text-decoration:none;font-size:0.68rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--textmid);padding:0.5rem 0.85rem;border-radius:2px;transition:color 0.2s,background 0.2s;}
+    .nav-links a:hover{color:var(--navy);background:var(--sand);}
+    .btn-nav-cta{display:flex!important;align-items:center;gap:7px;background:transparent;border:1.5px solid var(--gold);color:var(--gold)!important;padding:0.52rem 1.3rem!important;border-radius:2px;font-size:0.68rem!important;font-weight:700!important;letter-spacing:0.14em!important;text-transform:uppercase!important;transition:background 0.25s,color 0.25s,transform 0.15s!important;white-space:nowrap;}
+    .btn-nav-cta svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:1.8;transition:stroke 0.25s;flex-shrink:0;}
+    .btn-nav-cta:hover{background:var(--gold)!important;color:var(--white)!important;transform:translateY(-1px)!important;}
+    .btn-nav-cta:hover svg{stroke:var(--white);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border-radius:4px;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all 0.3s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .mobile-menu{display:none;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(27,46,94,0.97);z-index:999;padding:5rem 2.5rem 2.5rem;animation:menuSlide 0.25s ease forwards;}
+    .mobile-menu.open{display:flex;}
+    .mobile-close{position:absolute;top:1.2rem;right:1.5rem;background:transparent;border:none;cursor:pointer;width:40px;height:40px;display:flex;align-items:center;justify-content:center;}
+    .mobile-close svg{width:22px;height:22px;stroke:var(--white);fill:none;stroke-width:2;}
+    .mobile-menu a{text-decoration:none;font-size:1.2rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);transition:color 0.2s;font-family:'Cormorant Garamond',serif;}
+    .mobile-menu a:hover{color:var(--gold3);}
+    .mobile-menu a:last-of-type{border-bottom:none;}
+    .mobile-cta{margin-top:2rem;background:var(--gold);color:var(--white);text-align:center;padding:1rem;border-radius:2px;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;display:block;}
+    .mobile-logo{position:absolute;top:1.4rem;left:1.5rem;display:flex;align-items:center;gap:10px;}
+    .mobile-logo-txt{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--white);}
 
-/* NAV */
-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:var(--white);border-bottom:1px solid var(--bordernav);position:sticky;top:0;z-index:1000;box-shadow:0 2px 16px rgba(27,46,94,0.07);}
-.logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none;}
-.logo-icon{width:36px;height:36px;flex-shrink:0;}
-.logo-texts{display:flex;flex-direction:column;}
-.logo-main{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--navy);letter-spacing:0.05em;line-height:1.1;}
-.logo-sub{font-size:0.56rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:2px;}
-.nav-links{display:flex;align-items:center;gap:0.3rem;}
-.nav-links a{text-decoration:none;font-size:0.68rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--textmid);padding:0.5rem 0.85rem;border-radius:2px;transition:color 0.2s,background 0.2s;}
-.nav-links a:hover{color:var(--navy);background:var(--sand);}
-.btn-nav-cta{display:flex!important;align-items:center;gap:7px;background:transparent;border:1.5px solid var(--gold);color:var(--gold)!important;padding:0.52rem 1.3rem!important;border-radius:2px;font-size:0.68rem!important;font-weight:700!important;letter-spacing:0.14em!important;text-transform:uppercase!important;transition:background 0.25s,color 0.25s,transform 0.15s!important;white-space:nowrap;}
-.btn-nav-cta svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:1.8;transition:stroke 0.25s;flex-shrink:0;}
-.btn-nav-cta:hover{background:var(--gold)!important;color:var(--white)!important;transform:translateY(-1px)!important;}
-.btn-nav-cta:hover svg{stroke:var(--white);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border-radius:4px;}
-.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all 0.3s;}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.hamburger.open span:nth-child(2){opacity:0;}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mobile-menu{display:none;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(27,46,94,0.97);z-index:999;padding:5rem 2.5rem 2.5rem;animation:menuSlide 0.25s ease forwards;}
-.mobile-menu.open{display:flex;}
-.mobile-close{position:absolute;top:1.2rem;right:1.5rem;background:transparent;border:none;cursor:pointer;width:40px;height:40px;display:flex;align-items:center;justify-content:center;}
-.mobile-close svg{width:22px;height:22px;stroke:var(--white);fill:none;stroke-width:2;}
-.mobile-menu a{text-decoration:none;font-size:1.2rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08);transition:color 0.2s;font-family:'Cormorant Garamond',serif;}
-.mobile-menu a:hover{color:var(--gold3);}
-.mobile-menu a:last-of-type{border-bottom:none;}
-.mobile-cta{margin-top:2rem;background:var(--gold);color:var(--white);text-align:center;padding:1rem;border-radius:2px;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;display:block;}
-.mobile-logo{position:absolute;top:1.4rem;left:1.5rem;display:flex;align-items:center;gap:10px;}
-.mobile-logo-txt{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--white);}
+    /* ═══════════════════════════════════
+       HERO — DESKTOP: dos columnas
+       ═══════════════════════════════════ */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      min-height:88vh;
+      background:var(--white);
+    }
+    .hero-left{padding:5rem 3rem 4rem 4rem;display:flex;flex-direction:column;justify-content:center;}
+    .eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:1.8rem;}
+    .eyebrow-line{width:28px;height:2px;background:var(--gold);animation:goldPulse 2.5s ease infinite;}
+    .eyebrow-text{font-size:0.65rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);}
+    .hero-h1{font-family:'Cormorant Garamond',serif;font-size:3.4rem;font-weight:600;line-height:1.1;color:var(--dark);}
+    .hero-h1 em{color:var(--gold);font-style:italic;}
+    .hero-p{font-size:0.9rem;font-weight:300;color:var(--textmid);line-height:1.9;margin:1.4rem 0 2.5rem;max-width:400px;}
+    .hero-btns{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;}
+    .btn-primary{background:var(--navy);color:var(--white);padding:0.9rem 2rem;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s,transform 0.15s;border:none;cursor:pointer;display:inline-block;}
+    .btn-primary:hover{background:var(--navy2);transform:translateY(-2px);}
+    .btn-outline{background:transparent;color:var(--navy);padding:0.9rem 2rem;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1.5px solid var(--navy);transition:all 0.2s;cursor:pointer;display:inline-block;}
+    .btn-outline:hover{background:var(--navy);color:var(--white);transform:translateY(-2px);}
 
-/* ═══════════════════════════════════
-   HERO — DESKTOP: dos columnas
-   ═══════════════════════════════════ */
-.hero{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  min-height:88vh;
-  background:var(--white);
-}
-.hero-left{padding:5rem 3rem 4rem 4rem;display:flex;flex-direction:column;justify-content:center;}
-.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:1.8rem;}
-.eyebrow-line{width:28px;height:2px;background:var(--gold);animation:goldPulse 2.5s ease infinite;}
-.eyebrow-text{font-size:0.65rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);}
-.hero-h1{font-family:'Cormorant Garamond',serif;font-size:3.4rem;font-weight:600;line-height:1.1;color:var(--dark);}
-.hero-h1 em{color:var(--gold);font-style:italic;}
-.hero-p{font-size:0.9rem;font-weight:300;color:var(--textmid);line-height:1.9;margin:1.4rem 0 2.5rem;max-width:400px;}
-.hero-btns{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;}
-.btn-primary{background:var(--navy);color:var(--white);padding:0.9rem 2rem;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s,transform 0.15s;border:none;cursor:pointer;display:inline-block;}
-.btn-primary:hover{background:var(--navy2);transform:translateY(-2px);}
-.btn-outline{background:transparent;color:var(--navy);padding:0.9rem 2rem;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1.5px solid var(--navy);transition:all 0.2s;cursor:pointer;display:inline-block;}
-.btn-outline:hover{background:var(--navy);color:var(--white);transform:translateY(-2px);}
+    /* Panel derecho desktop: foto con cover + badge encima */
+    .hero-right{
+      position:relative;
+      overflow:hidden;
+      background:var(--sand);
+      min-height:88vh;
+    }
+    .hero-photo-cover{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center top;
+      display:block;
+      filter:saturate(0.95) contrast(1.02);
+    }
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(27,46,94,0.1) 0%,transparent 35%);pointer-events:none;}
+    .hero-badge{
+      position:absolute;bottom:2rem;left:2rem;right:2rem;
+      background:rgba(27,46,94,0.9);backdrop-filter:blur(8px);
+      border:1px solid rgba(184,147,42,0.4);
+      padding:1rem 1.4rem;
+      display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;
+      gap:0.5rem;align-items:center;
+    }
+    .stat-mini{text-align:center;}
+    .stat-mini-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--gold2);line-height:1;}
+    .stat-mini-lbl{font-size:0.58rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-top:3px;}
+    .stat-sep{width:1px;height:32px;background:rgba(184,147,42,0.3);margin:0 auto;}
 
-/* Panel derecho desktop: foto con cover + badge encima */
-.hero-right{
-  position:relative;
-  overflow:hidden;
-  background:var(--sand);
-  /* Altura mínima para que cover funcione bien */
-  min-height:88vh;
-}
-.hero-photo-cover{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center top;
-  display:block;
-  filter:saturate(0.95) contrast(1.02);
-}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(27,46,94,0.1) 0%,transparent 35%);pointer-events:none;}
-.hero-badge{
-  position:absolute;bottom:2rem;left:2rem;right:2rem;
-  background:rgba(27,46,94,0.9);backdrop-filter:blur(8px);
-  border:1px solid rgba(184,147,42,0.4);
-  padding:1rem 1.4rem;
-  display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;
-  gap:0.5rem;align-items:center;
-}
-.stat-mini{text-align:center;}
-.stat-mini-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--gold2);line-height:1;}
-.stat-mini-lbl{font-size:0.58rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-top:3px;}
-.stat-sep{width:1px;height:32px;background:rgba(184,147,42,0.3);margin:0 auto;}
+    /* ═══════════════════════════════════
+       HERO — MÓVIL: columna única
+       foto 100% debajo del texto, sin recorte
+       ═══════════════════════════════════ */
+    .hero-photo-full{
+      display:none;
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      object-position:center top;
+      filter:saturate(0.95) contrast(1.02);
+      background:var(--sand);
+    }
 
-/* ═══════════════════════════════════
-   HERO — MÓVIL: columna única
-   foto 100% debajo del texto, sin recorte
-   ═══════════════════════════════════ */
-.hero-photo-full{
-  /* SOLO visible en móvil */
-  display:none;
-  width:100%;
-  height:auto;        /* altura natural = sin recortar */
-  object-fit:contain;
-  object-position:center top;
-  filter:saturate(0.95) contrast(1.02);
-  background:var(--sand);
-}
+    /* Resto de secciones */
+    .divider-gold{height:1px;background:var(--sand2);}
+    section{padding:5rem 4rem;}
+    .sec-label-wrap{display:flex;align-items:center;gap:10px;margin-bottom:0.8rem;}
+    .sec-line{width:24px;height:2px;background:var(--gold);}
+    .sec-label{font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);}
+    .sec-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:var(--dark);line-height:1.2;}
+    .sec-desc{font-size:0.85rem;font-weight:300;color:var(--textmid);line-height:1.9;margin-top:0.8rem;}
+    .propuesta{background:var(--cream);}
+    .prop-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem;}
+    .prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+    .prop-card{background:var(--white);border:1px solid var(--sand2);padding:2.5rem 2rem;border-radius:4px;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;position:relative;overflow:hidden;}
+    .prop-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
+    .prop-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(27,46,94,0.1);border-color:rgba(184,147,42,0.3);}
+    .prop-card:hover::before{transform:scaleX(1);}
+    .prop-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:600;color:var(--sand2);line-height:1;margin-bottom:1.2rem;}
+    .prop-title{font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);margin-bottom:0.6rem;}
+    .prop-desc{font-size:0.82rem;font-weight:300;color:var(--textmid);line-height:1.8;}
+    .servicios{background:var(--white);}
+    .serv-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+    .serv-list{display:flex;flex-direction:column;gap:1px;background:var(--sand2);}
+    .serv-item{background:var(--cream);padding:1.6rem 1.8rem;display:flex;align-items:flex-start;gap:1.2rem;transition:background 0.2s,transform 0.2s;}
+    .serv-item:hover{background:var(--white);transform:translateX(4px);}
+    .serv-icon{width:40px;height:40px;background:var(--sand);border:1px solid rgba(184,147,42,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:2px;transition:background 0.2s;}
+    .serv-item:hover .serv-icon{background:var(--navy);}
+    .serv-icon svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.6;transition:stroke 0.2s;}
+    .serv-item:hover .serv-icon svg{stroke:var(--white);}
+    .serv-name{font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);margin-bottom:0.3rem;}
+    .serv-desc-text{font-size:0.78rem;font-weight:300;color:var(--textmid);line-height:1.75;}
+    .contact-box{background:var(--sand);border:1px solid var(--sand2);padding:2rem;border-radius:4px;margin-top:2rem;}
+    .contact-label{font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+    .contact-row{display:flex;align-items:center;gap:10px;margin-bottom:0.8rem;}
+    .contact-icon{width:32px;height:32px;background:var(--white);border:1px solid rgba(184,147,42,0.2);display:flex;align-items:center;justify-content:center;border-radius:2px;flex-shrink:0;}
+    .contact-icon svg{width:14px;height:14px;stroke:var(--navy);fill:none;stroke-width:1.6;}
+    .contact-val{font-size:0.82rem;font-weight:500;color:var(--navy);}
+    .contact-val a{color:var(--navy);text-decoration:none;}
+    .contact-val a:hover{color:var(--gold);}
+    .proceso{background:var(--navy);}
+    .proceso .sec-title{color:var(--white);}
+    .proceso .sec-desc{color:rgba(255,255,255,0.6);}
+    .proceso .sec-label{color:var(--gold3);}
+    .proceso .sec-line{background:var(--gold3);}
+    .proc-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem;}
+    .proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.08);}
+    .proc-step{background:rgba(255,255,255,0.03);padding:2.2rem 1.8rem;transition:background 0.25s;}
+    .proc-step:hover{background:rgba(255,255,255,0.07);}
+    .proc-num{font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:600;color:var(--gold2);letter-spacing:0.2em;margin-bottom:1.2rem;}
+    .proc-title{font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);margin-bottom:0.5rem;}
+    .proc-desc{font-size:0.76rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.8;}
+    .proc-icon{width:36px;height:36px;background:rgba(184,147,42,0.15);border:1px solid rgba(184,147,42,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;border-radius:2px;}
+    .proc-icon svg{width:16px;height:16px;stroke:var(--gold2);fill:none;stroke-width:1.6;}
+    .testimonios{background:var(--cream);}
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+    .testi-card{background:var(--white);border:1px solid var(--sand2);padding:2.2rem;border-radius:4px;transition:transform 0.3s,box-shadow 0.3s;}
+    .testi-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(27,46,94,0.08);}
+    .testi-bar{width:28px;height:3px;background:var(--gold);margin-bottom:1.2rem;}
+    .testi-text{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--dark);line-height:1.8;margin-bottom:1.4rem;}
+    .testi-author{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);}
+    .testi-role{font-size:0.7rem;font-weight:300;color:var(--textlight);margin-top:2px;}
+    .cta-section{background:var(--sand);padding:6rem 4rem;text-align:center;}
+    .cta-inner{max-width:600px;margin:0 auto;}
+    .cta-title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:var(--dark);line-height:1.2;margin-bottom:1rem;}
+    .cta-title em{color:var(--gold);font-style:italic;}
+    .cta-p{font-size:0.85rem;font-weight:300;color:var(--textmid);line-height:1.9;margin-bottom:2.5rem;}
+    .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+    .cta-contacts{display:flex;gap:2.5rem;justify-content:center;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--sand2);flex-wrap:wrap;}
+    .cta-contact-item{text-align:center;}
+    .cta-contact-lbl{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--textlight);margin-bottom:3px;}
+    .cta-contact-val{font-size:0.85rem;font-weight:600;color:var(--navy);}
+    .cta-contact-val a{color:var(--navy);text-decoration:none;}
+    .cta-contact-val a:hover{color:var(--gold);}
+    footer{background:var(--navy);padding:2.5rem 4rem;border-top:1px solid rgba(184,147,42,0.15);}
+    .footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;}
+    .footer-logo-wrap{display:flex;align-items:center;gap:12px;}
+    .footer-logo-main{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--white);letter-spacing:0.05em;}
+    .footer-logo-sub{font-size:0.56rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold2);margin-top:2px;}
+    .footer-links{display:flex;gap:2rem;}
+    .footer-links a{text-decoration:none;font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);transition:color 0.2s;}
+    .footer-links a:hover{color:var(--gold2);}
+    .footer-social{display:flex;gap:0.6rem;align-items:center;}
+    .social-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid rgba(184,147,42,0.3);border-radius:2px;text-decoration:none;transition:background 0.2s,border-color 0.2s,transform 0.15s;}
+    .social-btn:hover{background:rgba(184,147,42,0.15);border-color:var(--gold2);transform:translateY(-2px);}
+    .social-btn svg{width:16px;height:16px;fill:rgba(255,255,255,0.5);transition:fill 0.2s;flex-shrink:0;}
+    .social-btn:hover svg{fill:var(--gold2);}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,0.07);}
+    .footer-copy{font-size:0.68rem;font-weight:300;color:rgba(255,255,255,0.3);}
+    .footer-legal{display:flex;gap:1.5rem;}
+    .footer-legal a{text-decoration:none;font-size:0.65rem;color:rgba(255,255,255,0.25);letter-spacing:0.06em;transition:color 0.2s;}
+    .footer-legal a:hover{color:rgba(255,255,255,0.5);}
 
-/* Resto de secciones */
-.divider-gold{height:1px;background:var(--sand2);}
-section{padding:5rem 4rem;}
-.sec-label-wrap{display:flex;align-items:center;gap:10px;margin-bottom:0.8rem;}
-.sec-line{width:24px;height:2px;background:var(--gold);}
-.sec-label{font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);}
-.sec-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:var(--dark);line-height:1.2;}
-.sec-desc{font-size:0.85rem;font-weight:300;color:var(--textmid);line-height:1.9;margin-top:0.8rem;}
-.propuesta{background:var(--cream);}
-.prop-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem;}
-.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.prop-card{background:var(--white);border:1px solid var(--sand2);padding:2.5rem 2rem;border-radius:4px;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;position:relative;overflow:hidden;}
-.prop-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
-.prop-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(27,46,94,0.1);border-color:rgba(184,147,42,0.3);}
-.prop-card:hover::before{transform:scaleX(1);}
-.prop-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:600;color:var(--sand2);line-height:1;margin-bottom:1.2rem;}
-.prop-title{font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);margin-bottom:0.6rem;}
-.prop-desc{font-size:0.82rem;font-weight:300;color:var(--textmid);line-height:1.8;}
-.servicios{background:var(--white);}
-.serv-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-.serv-list{display:flex;flex-direction:column;gap:1px;background:var(--sand2);}
-.serv-item{background:var(--cream);padding:1.6rem 1.8rem;display:flex;align-items:flex-start;gap:1.2rem;transition:background 0.2s,transform 0.2s;}
-.serv-item:hover{background:var(--white);transform:translateX(4px);}
-.serv-icon{width:40px;height:40px;background:var(--sand);border:1px solid rgba(184,147,42,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:2px;transition:background 0.2s;}
-.serv-item:hover .serv-icon{background:var(--navy);}
-.serv-icon svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.6;transition:stroke 0.2s;}
-.serv-item:hover .serv-icon svg{stroke:var(--white);}
-.serv-name{font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);margin-bottom:0.3rem;}
-.serv-desc-text{font-size:0.78rem;font-weight:300;color:var(--textmid);line-height:1.75;}
-.contact-box{background:var(--sand);border:1px solid var(--sand2);padding:2rem;border-radius:4px;margin-top:2rem;}
-.contact-label{font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
-.contact-row{display:flex;align-items:center;gap:10px;margin-bottom:0.8rem;}
-.contact-icon{width:32px;height:32px;background:var(--white);border:1px solid rgba(184,147,42,0.2);display:flex;align-items:center;justify-content:center;border-radius:2px;flex-shrink:0;}
-.contact-icon svg{width:14px;height:14px;stroke:var(--navy);fill:none;stroke-width:1.6;}
-.contact-val{font-size:0.82rem;font-weight:500;color:var(--navy);}
-.contact-val a{color:var(--navy);text-decoration:none;}
-.contact-val a:hover{color:var(--gold);}
-.proceso{background:var(--navy);}
-.proceso .sec-title{color:var(--white);}
-.proceso .sec-desc{color:rgba(255,255,255,0.6);}
-.proceso .sec-label{color:var(--gold3);}
-.proceso .sec-line{background:var(--gold3);}
-.proc-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem;}
-.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.08);}
-.proc-step{background:rgba(255,255,255,0.03);padding:2.2rem 1.8rem;transition:background 0.25s;}
-.proc-step:hover{background:rgba(255,255,255,0.07);}
-.proc-num{font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:600;color:var(--gold2);letter-spacing:0.2em;margin-bottom:1.2rem;}
-.proc-title{font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);margin-bottom:0.5rem;}
-.proc-desc{font-size:0.76rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.8;}
-.proc-icon{width:36px;height:36px;background:rgba(184,147,42,0.15);border:1px solid rgba(184,147,42,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;border-radius:2px;}
-.proc-icon svg{width:16px;height:16px;stroke:var(--gold2);fill:none;stroke-width:1.6;}
-.testimonios{background:var(--cream);}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
-.testi-card{background:var(--white);border:1px solid var(--sand2);padding:2.2rem;border-radius:4px;transition:transform 0.3s,box-shadow 0.3s;}
-.testi-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(27,46,94,0.08);}
-.testi-bar{width:28px;height:3px;background:var(--gold);margin-bottom:1.2rem;}
-.testi-text{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--dark);line-height:1.8;margin-bottom:1.4rem;}
-.testi-author{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);}
-.testi-role{font-size:0.7rem;font-weight:300;color:var(--textlight);margin-top:2px;}
-.cta-section{background:var(--sand);padding:6rem 4rem;text-align:center;}
-.cta-inner{max-width:600px;margin:0 auto;}
-.cta-title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:var(--dark);line-height:1.2;margin-bottom:1rem;}
-.cta-title em{color:var(--gold);font-style:italic;}
-.cta-p{font-size:0.85rem;font-weight:300;color:var(--textmid);line-height:1.9;margin-bottom:2.5rem;}
-.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-.cta-contacts{display:flex;gap:2.5rem;justify-content:center;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--sand2);flex-wrap:wrap;}
-.cta-contact-item{text-align:center;}
-.cta-contact-lbl{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--textlight);margin-bottom:3px;}
-.cta-contact-val{font-size:0.85rem;font-weight:600;color:var(--navy);}
-.cta-contact-val a{color:var(--navy);text-decoration:none;}
-.cta-contact-val a:hover{color:var(--gold);}
-footer{background:var(--navy);padding:2.5rem 4rem;border-top:1px solid rgba(184,147,42,0.15);}
-.footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;}
-.footer-logo-wrap{display:flex;align-items:center;gap:12px;}
-.footer-logo-main{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--white);letter-spacing:0.05em;}
-.footer-logo-sub{font-size:0.56rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold2);margin-top:2px;}
-.footer-links{display:flex;gap:2rem;}
-.footer-links a{text-decoration:none;font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);transition:color 0.2s;}
-.footer-links a:hover{color:var(--gold2);}
-.footer-social{display:flex;gap:0.6rem;align-items:center;}
-.social-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid rgba(184,147,42,0.3);border-radius:2px;text-decoration:none;transition:background 0.2s,border-color 0.2s,transform 0.15s;}
-.social-btn:hover{background:rgba(184,147,42,0.15);border-color:var(--gold2);transform:translateY(-2px);}
-.social-btn svg{width:16px;height:16px;fill:rgba(255,255,255,0.5);transition:fill 0.2s;flex-shrink:0;}
-.social-btn:hover svg{fill:var(--gold2);}
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,0.07);}
-.footer-copy{font-size:0.68rem;font-weight:300;color:rgba(255,255,255,0.3);}
-.footer-legal{display:flex;gap:1.5rem;}
-.footer-legal a{text-decoration:none;font-size:0.65rem;color:rgba(255,255,255,0.25);letter-spacing:0.06em;transition:color 0.2s;}
-.footer-legal a:hover{color:rgba(255,255,255,0.5);}
+    /* ═══════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════ */
+    @media(max-width:900px){
+      nav{padding:1rem 1.5rem;}
+      .nav-links{display:none;}
+      .hamburger{display:flex;}
 
-/* ═══════════════════════════════════
-   RESPONSIVE
-   ═══════════════════════════════════ */
-@media(max-width:900px){
-  nav{padding:1rem 1.5rem;}
-  .nav-links{display:none;}
-  .hamburger{display:flex;}
+      /* Hero: columna única — texto arriba, foto abajo completa */
+      .hero{
+        display:flex;
+        flex-direction:column;
+        min-height:auto;
+        background:var(--white);
+      }
+      .hero-left{
+        order:1;
+        padding:3rem 2rem 2rem;
+        width:100%;
+      }
+      .hero-right{display:none !important;}
+      
+      /* ✅ Imagen móvil: completa, adaptada y bien espaciada */
+      .hero-photo-full{
+        display:block !important;
+        order:2;
+        width:100%;
+        max-width:100vw;
+        height:auto;
+        max-height:70vh;
+        object-fit:contain;
+        object-position:center top;
+        filter:saturate(0.95) contrast(1.02);
+        background:var(--sand);
+        margin:0 auto;
+        padding:0 1rem;
+        box-sizing:border-box;
+      }
 
-  /* Hero: columna única — texto arriba, foto abajo completa */
-  .hero{
-    display:flex;
-    flex-direction:column;
-    min-height:auto;
-    background:var(--white);
-  }
-  .hero-left{
-    order:1;
-    padding:3rem 2rem 2rem;
-    width:100%;
-  }
-  /* Ocultar versión desktop (cover con position:absolute) */
-  .hero-right{display:none !important;}
-  /* Mostrar foto completa debajo */
-  .hero-photo-full{
-    display:block;
-    order:2;
-    width:100%;
-    height:auto;
-  }
+      .hero-h1{font-size:2.4rem;}
+      .hero-p{max-width:100%;}
+      .prop-header{grid-template-columns:1fr;}
+      .prop-grid{grid-template-columns:1fr;}
+      .serv-grid{grid-template-columns:1fr;}
+      .proc-header{grid-template-columns:1fr;}
+      .proc-steps{grid-template-columns:1fr 1fr;}
+      .testi-grid{grid-template-columns:1fr;}
+      section{padding:3.5rem 1.5rem;}
+      .cta-section{padding:4rem 1.5rem;}
+      footer{padding:2rem 1.5rem;}
+      .footer-top{flex-direction:column;align-items:flex-start;gap:1.2rem;}
+      .footer-bottom{flex-direction:column;align-items:center;text-align:center;}
+      .footer-links{flex-wrap:wrap;}
+    }
+    @media(max-width:540px){
+      .hero-h1{font-size:2rem;}
+      .sec-title{font-size:1.9rem;}
+      .proc-steps{grid-template-columns:1fr;}
+      .cta-title{font-size:2rem;}
+      .hero-btns{flex-direction:column;align-items:flex-start;}
+      .cta-btns{flex-direction:column;align-items:center;}
+    }
+  </style>
+</head>
+<body>
 
-  .hero-h1{font-size:2.4rem;}
-  .hero-p{max-width:100%;}
-  .prop-header{grid-template-columns:1fr;}
-  .prop-grid{grid-template-columns:1fr;}
-  .serv-grid{grid-template-columns:1fr;}
-  .proc-header{grid-template-columns:1fr;}
-  .proc-steps{grid-template-columns:1fr 1fr;}
-  .testi-grid{grid-template-columns:1fr;}
-  section{padding:3.5rem 1.5rem;}
-  .cta-section{padding:4rem 1.5rem;}
-  footer{padding:2rem 1.5rem;}
-  .footer-top{flex-direction:column;align-items:flex-start;gap:1.2rem;}
-  .footer-bottom{flex-direction:column;align-items:center;text-align:center;}
-  .footer-links{flex-wrap:wrap;}
-}
-@media(max-width:540px){
-  .hero-h1{font-size:2rem;}
-  .sec-title{font-size:1.9rem;}
-  .proc-steps{grid-template-columns:1fr;}
-  .cta-title{font-size:2rem;}
-  .hero-btns{flex-direction:column;align-items:flex-start;}
-  .cta-btns{flex-direction:column;align-items:center;}
-}
-</style>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-logo"><svg width="28" height="28" viewBox="0 0 100 100" fill="none"><rect width="100" height="100" fill="#1B2E5E" rx="4"/><path d="M50 14 L80 36 L80 68 L64 68 L50 55 L36 68 L20 68 L20 36 Z" fill="none" stroke="#B8932A" stroke-width="3.5" stroke-linejoin="round"/><path d="M50 34 L62 44 L62 68 L38 68 L38 44 Z" fill="none" stroke="#B8932A" stroke-width="3.5" stroke-linejoin="round"/></svg><span class="mobile-logo-txt">AMG Financiaciones</span></div>
-  <button class="mobile-close" onclick="closeMenu()"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
-  <a href="#hero" onclick="closeMenu()">Inicio</a>
-  <a href="#servicios" onclick="closeMenu()">Servicios</a>
-  <a href="#proceso" onclick="closeMenu()">Proceso</a>
-  <a href="#testimonios" onclick="closeMenu()">Testimonios</a>
-  <a href="#empieza" onclick="closeMenu()">Contacto</a>
-  <a href="tel:623928644" class="mobile-cta" onclick="closeMenu()">Consulta gratuita — 623 928 644</a>
-</div>
-
-<nav>
-  <a href="#hero" class="logo-wrap">
-    <svg class="logo-icon" viewBox="0 0 100 100" fill="none"><rect width="100" height="100" fill="#1B2E5E" rx="4"/><path d="M50 14 L80 36 L80 68 L64 68 L50 55 L36 68 L20 68 L20 36 Z" fill="none" stroke="#B8932A" stroke-width="3.5" stroke-linejoin="round"/><path d="M50 34 L62 44 L62 68 L38 68 L38 44 Z" fill="none" stroke="#B8932A" stroke-width="3.5" stroke-linejoin="round"/><text x="50" y="90" font-family="Georgia,serif" font-size="11" font-weight="700" fill="#B8932A" text-anchor="middle" letter-spacing="3.5">AMG</text></svg>
-    <div class="logo-texts"><span class="logo-main">AMG Financiaciones</span><span class="logo-sub">Agente Financiero</span></div>
-  </a>
-  <div class="nav-links">
-    <a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#testimonios">Testimonios</a><a href="#empieza">Contacto</a>
-    <a href="tel:623928644" class="btn-nav-cta"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>Consulta gratuita</a>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-logo"><svg width="28" height="28" viewBox="0 0 100 100" fill="none"><rect width="100" height="100" fill="#1B2E5E" rx="4"/><path d="M50 14 L80 36 L80 68 L64 68 L50 55 L36 68 L20 68 L20 36 Z" fill="none" stroke="#B8932A" stroke-width="3.5" stroke-linejoin="round"/><path d="M50 34 L62 44 L62 68 L38 68 L38 44 Z" fill="none" stroke="#B8932A" stroke-width="3.5" stroke-linejoin="round"/></svg><span class="mobile-logo-txt">AMG Financiaciones</span></div>
+    <button class="mobile-close" onclick="closeMenu()"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    <a href="#hero" onclick="closeMenu()">Inicio</a>
+    <a href="#servicios" onclick="closeMenu()">Servicios</a>
+    <a href="#proceso" onclick="closeMenu()">Proceso</a>
+    <a href="#testimonios" onclick="closeMenu()">Testimonios</a>
+    <a href="#empieza" onclick="closeMenu()">Contacto</a>
+    <a href="tel:623928644" class="mobile-cta" onclick="closeMenu()">Consulta gratuita — 623 928 644</a>
   </div>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-</nav>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <!-- Texto — siempre visible -->
-  <div class="hero-left">
-    <div class="eyebrow anim-up d1"><div class="eyebrow-line"></div><span class="eyebrow-text">Macarena Guijo Rodríguez · Sevilla</span></div>
-    <h1 class="hero-h1 anim-up d2">Tu hipoteca,<br>tus condiciones,<br><em>sin complicaciones</em></h1>
-    <p class="hero-p anim-up d3">Negocio préstamos e hipotecas con las mejores condiciones del mercado. Independiente, honesta y siempre a tu lado en cada paso.</p>
-    <div class="hero-btns anim-up d4">
-      <a href="tel:623928644" class="btn-primary">Llamar ahora</a>
-      <a href="#servicios" class="btn-outline">Ver servicios</a>
+  <nav>
+    <a href="#hero" class="logo-wrap">
+      <svg class="logo-icon" viewBox="0 0 100 100" fill="none"><rect width="100" height="100" fill="#1B2E5E" rx="4"/><path d="M50 14 L80 36 L80 68 L64 68 L50 55 L36 68 L20 68 L20 36 Z" fill="none" stroke="#B8932A" stroke-width="3.5" stroke-linejoin="round"/><path d="M50 34 L62 44 L62 68 L38 68 L38 44 Z" fill="none" stroke="#B8932A" stroke-width="3.5" stroke-linejoin="round"/><text x="50" y="90" font-family="Georgia,serif" font-size="11" font-weight="700" fill="#B8932A" text-anchor="middle" letter-spacing="3.5">AMG</text></svg>
+      <div class="logo-texts"><span class="logo-main">AMG Financiaciones</span><span class="logo-sub">Agente Financiero</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#testimonios">Testimonios</a><a href="#empieza">Contacto</a>
+      <a href="tel:623928644" class="btn-nav-cta"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>Consulta gratuita</a>
     </div>
-  </div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </nav>
 
-  <!-- DESKTOP: foto con object-fit cover + badge -->
-  <div class="hero-right">
-    <img class="hero-photo-cover"
-         src="/amgfinanciaciones/Macarena.png"
-         alt="Macarena Guijo Rodríguez, agente financiera AMG Financiaciones"/>
-    <div class="hero-overlay"></div>
-    <div class="hero-badge">
-      <div class="stat-mini"><div class="stat-mini-num">+200</div><div class="stat-mini-lbl">Clientes ayudados</div></div>
-      <div class="stat-sep"></div>
-      <div class="stat-mini"><div class="stat-mini-num">98%</div><div class="stat-mini-lbl">Satisfacción</div></div>
-      <div class="stat-sep"></div>
-      <div class="stat-mini"><div class="stat-mini-num">0€</div><div class="stat-mini-lbl">1ª consulta</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- MÓVIL: foto completa, fuera del grid del hero, debajo del texto -->
-<img class="hero-photo-full"
-     src="/amgfinanciaciones/Macarena.png"
-     alt="Macarena Guijo Rodríguez, agente financiera AMG Financiaciones"/>
-
-<div class="divider-gold"></div>
-
-<!-- PROPUESTA -->
-<section class="propuesta">
-  <div class="prop-header">
-    <div><div class="sec-label-wrap anim-right d1"><div class="sec-line"></div><span class="sec-label">Por qué elegirme</span></div><h2 class="sec-title anim-right d2">Mi compromiso<br>contigo</h2></div>
-    <p class="sec-desc anim-left d2">Trabajo de forma independiente para encontrar la mejor solución financiera para cada persona, sin ataduras con ninguna entidad bancaria.</p>
-  </div>
-  <div class="prop-grid">
-    <div class="prop-card anim-up d1"><div class="prop-num">01</div><div class="prop-title">Independencia total</div><div class="prop-desc">No trabajo para ningún banco. Comparo entre múltiples entidades para encontrar la opción más ventajosa para ti.</div></div>
-    <div class="prop-card anim-up d2"><div class="prop-num">02</div><div class="prop-title">Transparencia absoluta</div><div class="prop-desc">Sin letra pequeña ni sorpresas. Te explico cada detalle antes de tomar ninguna decisión.</div></div>
-    <div class="prop-card anim-up d3"><div class="prop-num">03</div><div class="prop-title">Trato personal</div><div class="prop-desc">Cada caso es único. Te acompaño con dedicación y disponibilidad real, no eres un número de ticket.</div></div>
-  </div>
-</section>
-
-<!-- SERVICIOS -->
-<section class="servicios" id="servicios">
-  <div class="serv-grid">
-    <div>
-      <div class="sec-label-wrap anim-right d1"><div class="sec-line"></div><span class="sec-label">Servicios</span></div>
-      <h2 class="sec-title anim-right d2">¿En qué puedo<br>ayudarte?</h2>
-      <p class="sec-desc anim-right d3">Especializada en financiación de hipotecas y préstamos, gestiono todo el proceso para que tú solo tengas que decir sí.</p>
-      <div class="contact-box anim-up d4" id="contacto">
-        <div class="contact-label">Contacto directo</div>
-        <div class="contact-row"><div class="contact-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg></div><span class="contact-val"><a href="tel:623928644">623 928 644</a></span></div>
-        <div class="contact-row"><div class="contact-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg></div><span class="contact-val"><a href="mailto:financiaamg@gmail.com">financiaamg@gmail.com</a></span></div>
-        <div style="margin-top:1.2rem;"><a href="tel:623928644" class="btn-primary" style="width:100%;text-align:center;display:block;">Solicitar consulta gratuita</a></div>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <!-- Texto — siempre visible -->
+    <div class="hero-left">
+      <div class="eyebrow anim-up d1"><div class="eyebrow-line"></div><span class="eyebrow-text">Macarena Guijo Rodríguez · Sevilla</span></div>
+      <h1 class="hero-h1 anim-up d2">Tu hipoteca,<br>tus condiciones,<br><em>sin complicaciones</em></h1>
+      <p class="hero-p anim-up d3">Negocio préstamos e hipotecas con las mejores condiciones del mercado. Independiente, honesta y siempre a tu lado en cada paso.</p>
+      <div class="hero-btns anim-up d4">
+        <a href="tel:623928644" class="btn-primary">Llamar ahora</a>
+        <a href="#servicios" class="btn-outline">Ver servicios</a>
       </div>
     </div>
-    <div class="serv-list anim-left d2">
-      <div class="serv-item"><div class="serv-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75"/></svg></div><div><div class="serv-name">Hipotecas</div><div class="serv-desc-text">Primera vivienda, segunda residencia o subrogación. Negocio las mejores condiciones directamente con los bancos.</div></div></div>
-      <div class="serv-item"><div class="serv-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><div class="serv-name">Préstamos personales</div><div class="serv-desc-text">Reformas, estudios o cualquier necesidad. Comparo entre múltiples entidades para ofrecerte la cuota más baja.</div></div></div>
-      <div class="serv-item"><div class="serv-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3"/></svg></div><div><div class="serv-name">Reunificación de deudas</div><div class="serv-desc-text">Agrupa todos tus préstamos en uno para reducir tu cuota mensual y simplificar tu situación financiera.</div></div></div>
-      <div class="serv-item"><div class="serv-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/></svg></div><div><div class="serv-name">Asesoramiento integral</div><div class="serv-desc-text">Analizo tu perfil y te oriento sobre la mejor estrategia sin ningún compromiso y con total honestidad.</div></div></div>
-    </div>
-  </div>
-</section>
 
-<!-- PROCESO -->
-<section class="proceso" id="proceso">
-  <div class="proc-header">
-    <div><div class="sec-label-wrap anim-right d1"><div class="sec-line" style="background:var(--gold3);"></div><span class="sec-label">Cómo trabajo</span></div><h2 class="sec-title anim-right d2">Proceso claro,<br>resultados reales</h2></div>
-    <p class="sec-desc anim-left d2">Mi metodología está pensada para que te sientas seguro en cada etapa, desde la primera llamada hasta la firma.</p>
-  </div>
-  <div class="proc-steps">
-    <div class="proc-step anim-up d1"><div class="proc-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg></div><div class="proc-num">PASO 01</div><div class="proc-title">Consulta inicial</div><div class="proc-desc">Hablamos de tu situación y objetivos. Gratuita, sin compromiso.</div></div>
-    <div class="proc-step anim-up d2"><div class="proc-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg></div><div class="proc-num">PASO 02</div><div class="proc-title">Análisis personalizado</div><div class="proc-desc">Estudio tu perfil y comparo las mejores opciones del mercado.</div></div>
-    <div class="proc-step anim-up d3"><div class="proc-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3"/></svg></div><div class="proc-num">PASO 03</div><div class="proc-title">Negociación bancaria</div><div class="proc-desc">Gestiono con las entidades para obtener las mejores condiciones.</div></div>
-    <div class="proc-step anim-up d4"><div class="proc-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div class="proc-num">PASO 04</div><div class="proc-title">Firma y seguimiento</div><div class="proc-desc">Te acompaño hasta la firma y permanezco disponible siempre.</div></div>
-  </div>
-</section>
-
-<!-- TESTIMONIOS -->
-<section class="testimonios" id="testimonios">
-  <div class="sec-label-wrap anim-up d1"><div class="sec-line"></div><span class="sec-label">Testimonios</span></div>
-  <h2 class="sec-title anim-up d2">Lo que dicen<br>mis clientes</h2>
-  <div class="testi-grid">
-    <div class="testi-card anim-up d2"><div class="testi-bar"></div><p class="testi-text">"Conseguimos la hipoteca que los bancos nos habían denegado. Su gestión fue impecable de principio a fin."</p><div class="testi-author">Lucía M. y Marcos R.</div><div class="testi-role">Primera vivienda · Sevilla</div></div>
-    <div class="testi-card anim-up d3"><div class="testi-bar"></div><p class="testi-text">"Todo fue transparente, sin letra pequeña. Conseguimos unas condiciones mucho mejores de lo esperado."</p><div class="testi-author">Andrés F.</div><div class="testi-role">Préstamo reforma</div></div>
-    <div class="testi-card anim-up d4"><div class="testi-bar"></div><p class="testi-text">"Trato humano y muy profesional. Siempre disponible con paciencia para cada pregunta. La recomendaría sin dudar."</p><div class="testi-author">Isabel T.</div><div class="testi-role">Reunificación de préstamos</div></div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section" id="empieza">
-  <div class="cta-inner">
-    <div class="sec-label-wrap anim-up d1" style="justify-content:center;"><div class="sec-line"></div><span class="sec-label">Empieza hoy</span></div>
-    <h2 class="cta-title anim-up d2">¿Lista para encontrar<br><em>tu mejor financiación?</em></h2>
-    <p class="cta-p anim-up d3">Una consulta gratuita puede ahorrarte miles de euros. Cuéntame tu situación y encontramos juntos la solución más inteligente.</p>
-    <div class="cta-btns anim-up d4">
-      <a href="tel:623928644" class="btn-primary">Llamar al 623 928 644</a>
-      <a href="mailto:financiaamg@gmail.com" class="btn-outline">Enviar email</a>
+    <!-- DESKTOP: foto con object-fit cover + badge -->
+    <div class="hero-right">
+      <img class="hero-photo-cover"
+           src="/amgfinanciaciones/Macarena.png"
+           alt="Macarena Guijo Rodríguez, agente financiera AMG Financiaciones"/>
+      <div class="hero-overlay"></div>
+      <div class="hero-badge">
+        <div class="stat-mini"><div class="stat-mini-num">+200</div><div class="stat-mini-lbl">Clientes ayudados</div></div>
+        <div class="stat-sep"></div>
+        <div class="stat-mini"><div class="stat-mini-num">98%</div><div class="stat-mini-lbl">Satisfacción</div></div>
+        <div class="stat-sep"></div>
+        <div class="stat-mini"><div class="stat-mini-num">0€</div><div class="stat-mini-lbl">1ª consulta</div></div>
+      </div>
     </div>
-    <div class="cta-contacts anim-up d5">
-      <div class="cta-contact-item"><div class="cta-contact-lbl">Teléfono</div><div class="cta-contact-val"><a href="tel:623928644">623 928 644</a></div></div>
-      <div style="width:1px;background:var(--sand2);"></div>
-      <div class="cta-contact-item"><div class="cta-contact-lbl">Email</div><div class="cta-contact-val"><a href="mailto:financiaamg@gmail.com">financiaamg@gmail.com</a></div></div>
-      <div style="width:1px;background:var(--sand2);"></div>
-      <div class="cta-contact-item"><div class="cta-contact-lbl">Primera consulta</div><div class="cta-contact-val">Gratuita y sin compromiso</div></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-logo-wrap">
-      <svg width="30" height="30" viewBox="0 0 100 100" fill="none"><rect width="100" height="100" fill="#1B2E5E" rx="4"/><path d="M50 14 L80 36 L80 68 L64 68 L50 55 L36 68 L20 68 L20 36 Z" fill="none" stroke="#B8932A" stroke-width="3.5" stroke-linejoin="round"/><path d="M50 34 L62 44 L62 68 L38 68 L38 44 Z" fill="none" stroke="#B8932A" stroke-width="3.5" stroke-linejoin="round"/></svg>
-      <div><div class="footer-logo-main">AMG Financiaciones</div><div class="footer-logo-sub">Macarena Guijo Rodríguez</div></div>
-    </div>
-    <div class="footer-links"><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#testimonios">Testimonios</a><a href="#empieza">Contacto</a></div>
-    <div class="footer-social">
-      <a href="https://www.facebook.com" target="_blank" rel="noopener" class="social-btn" title="Facebook AMG Financiaciones">
-        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-      <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social-btn" title="Instagram AMG Financiaciones">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      </a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2025 AMG Financiaciones · Todos los derechos reservados</span>
-    <div class="footer-legal"><a href="#">Política de privacidad</a><a href="#">Aviso legal</a></div>
-  </div>
-</footer>
+  <!-- MÓVIL: foto completa, fuera del grid del hero, debajo del texto -->
+  <img class="hero-photo-full"
+       src="/amgfinanciaciones/Macarena.png"
+       alt="Macarena Guijo Rodríguez, agente financiera AMG Financiaciones"/>
 
-<script>
-function toggleMenu(){const m=document.getElementById('mobileMenu');const h=document.getElementById('hamburger');if(m.classList.contains('open')){closeMenu();}else{m.classList.add('open');h.classList.add('open');document.body.style.overflow='hidden';}}
-function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('hamburger').classList.remove('open');document.body.style.overflow='';}
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const id=this.getAttribute('href').slice(1);if(!id)return;const el=document.getElementById(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}});});
-const obs=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.animationPlayState='running';}});},{threshold:0.12});
-document.querySelectorAll('.anim-up,.anim-left,.anim-right,.anim-scale').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el);});
-</script>
+  <div class="divider-gold"></div>
+
+  <!-- PROPUESTA -->
+  <section class="propuesta">
+    <div class="prop-header">
+      <div><div class="sec-label-wrap anim-right d1"><div class="sec-line"></div><span class="sec-label">Por qué elegirme</span></div><h2 class="sec-title anim-right d2">Mi compromiso<br>contigo</h2></div>
+      <p class="sec-desc anim-left d2">Trabajo de forma independiente para encontrar la mejor solución financiera para cada persona, sin ataduras con ninguna entidad bancaria.</p>
+    </div>
+    <div class="prop-grid">
+      <div class="prop-card anim-up d1"><div class="prop-num">01</div><div class="prop-title">Independencia total</div><div class="prop-desc">No trabajo para ningún banco. Comparo entre múltiples entidades para encontrar la opción más ventajosa para ti.</div></div>
+      <div class="prop-card anim-up d2"><div class="prop-num">02</div><div class="prop-title">Transparencia absoluta</div><div class="prop-desc">Sin letra pequeña ni sorpresas. Te explico cada detalle antes de tomar ninguna decisión.</div></div>
+      <div class="prop-card anim-up d3"><div class="prop-num">03</div><div class="prop-title">Trato personal</div><div class="prop-desc">Cada caso es único. Te acompaño con dedicación y disponibilidad real, no eres un número de ticket.</div></div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="servicios" id="servicios">
+    <div class="serv-grid">
+      <div>
+        <div class="sec-label-wrap anim-right d1"><div class="sec-line"></div><span class="sec-label">Servicios</span></div>
+        <h2 class="sec-title anim-right d2">¿En qué puedo<br>ayudarte?</h2>
+        <p class="sec-desc anim-right d3">Especializada en financiación de hipotecas y préstamos, gestiono todo el proceso para que tú solo tengas que decir sí.</p>
+        <div class="contact-box anim-up d4" id="contacto">
+          <div class="contact-label">Contacto directo</div>
+          <div class="contact-row"><div class="contact-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg></div><span class="contact-val"><a href="tel:623928644">623 928 644</a></span></div>
+          <div class="contact-row"><div class="contact-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg></div><span class="contact-val"><a href="mailto:financiaamg@gmail.com">financiaamg@gmail.com</a></span></div>
+          <div style="margin-top:1.2rem;"><a href="tel:623928644" class="btn-primary" style="width:100%;text-align:center;display:block;">Solicitar consulta gratuita</a></div>
+        </div>
+      </div>
+      <div class="serv-list anim-left d2">
+        <div class="serv-item"><div class="serv-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75"/></svg></div><div><div class="serv-name">Hipotecas</div><div class="serv-desc-text">Primera vivienda, segunda residencia o subrogación. Negocio las mejores condiciones directamente con los bancos.</div></div></div>
+        <div class="serv-item"><div class="serv-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><div class="serv-name">Préstamos personales</div><div class="serv-desc-text">Reformas, estudios o cualquier necesidad. Comparo entre múltiples entidades para ofrecerte la cuota más baja.</div></div></div>
+        <div class="serv-item"><div class="serv-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3"/></svg></div><div><div class="serv-name">Reunificación de deudas</div><div class="serv-desc-text">Agrupa todos tus préstamos en uno para reducir tu cuota mensual y simplificar tu situación financiera.</div></div></div>
+        <div class="serv-item"><div class="serv-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/></svg></div><div><div class="serv-name">Asesoramiento integral</div><div class="serv-desc-text">Analizo tu perfil y te oriento sobre la mejor estrategia sin ningún compromiso y con total honestidad.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="proceso" id="proceso">
+    <div class="proc-header">
+      <div><div class="sec-label-wrap anim-right d1"><div class="sec-line" style="background:var(--gold3);"></div><span class="sec-label">Cómo trabajo</span></div><h2 class="sec-title anim-right d2">Proceso claro,<br>resultados reales</h2></div>
+      <p class="sec-desc anim-left d2">Mi metodología está pensada para que te sientas seguro en cada etapa, desde la primera llamada hasta la firma.</p>
+    </div>
+    <div class="proc-steps">
+      <div class="proc-step anim-up d1"><div class="proc-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg></div><div class="proc-num">PASO 01</div><div class="proc-title">Consulta inicial</div><div class="proc-desc">Hablamos de tu situación y objetivos. Gratuita, sin compromiso.</div></div>
+      <div class="proc-step anim-up d2"><div class="proc-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg></div><div class="proc-num">PASO 02</div><div class="proc-title">Análisis personalizado</div><div class="proc-desc">Estudio tu perfil y comparo las mejores opciones del mercado.</div></div>
+      <div class="proc-step anim-up d3"><div class="proc-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3"/></svg></div><div class="proc-num">PASO 03</div><div class="proc-title">Negociación bancaria</div><div class="proc-desc">Gestiono con las entidades para obtener las mejores condiciones.</div></div>
+      <div class="proc-step anim-up d4"><div class="proc-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div class="proc-num">PASO 04</div><div class="proc-title">Firma y seguimiento</div><div class="proc-desc">Te acompaño hasta la firma y permanezco disponible siempre.</div></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="testimonios" id="testimonios">
+    <div class="sec-label-wrap anim-up d1"><div class="sec-line"></div><span class="sec-label">Testimonios</span></div>
+    <h2 class="sec-title anim-up d2">Lo que dicen<br>mis clientes</h2>
+    <div class="testi-grid">
+      <div class="testi-card anim-up d2"><div class="testi-bar"></div><p class="testi-text">"Conseguimos la hipoteca que los bancos nos habían denegado. Su gestión fue impecable de principio a fin."</p><div class="testi-author">Lucía M. y Marcos R.</div><div class="testi-role">Primera vivienda · Sevilla</div></div>
+      <div class="testi-card anim-up d3"><div class="testi-bar"></div><p class="testi-text">"Todo fue transparente, sin letra pequeña. Conseguimos unas condiciones mucho mejores de lo esperado."</p><div class="testi-author">Andrés F.</div><div class="testi-role">Préstamo reforma</div></div>
+      <div class="testi-card anim-up d4"><div class="testi-bar"></div><p class="testi-text">"Trato humano y muy profesional. Siempre disponible con paciencia para cada pregunta. La recomendaría sin dudar."</p><div class="testi-author">Isabel T.</div><div class="testi-role">Reunificación de préstamos</div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="empieza">
+    <div class="cta-inner">
+      <div class="sec-label-wrap anim-up d1" style="justify-content:center;"><div class="sec-line"></div><span class="sec-label">Empieza hoy</span></div>
+      <h2 class="cta-title anim-up d2">¿Lista para encontrar<br><em>tu mejor financiación?</em></h2>
+      <p class="cta-p anim-up d3">Una consulta gratuita puede ahorrarte miles de euros. Cuéntame tu situación y encontramos juntos la solución más inteligente.</p>
+      <div class="cta-btns anim-up d4">
+        <a href="tel:623928644" class="btn-primary">Llamar al 623 928 644</a>
+        <a href="mailto:financiaamg@gmail.com" class="btn-outline">Enviar email</a>
+      </div>
+      <div class="cta-contacts anim-up d5">
+        <div class="cta-contact-item"><div class="cta-contact-lbl">Teléfono</div><div class="cta-contact-val"><a href="tel:623928644">623 928 644</a></div></div>
+        <div style="width:1px;background:var(--sand2);"></div>
+        <div class="cta-contact-item"><div class="cta-contact-lbl">Email</div><div class="cta-contact-val"><a href="mailto:financiaamg@gmail.com">financiaamg@gmail.com</a></div></div>
+        <div style="width:1px;background:var(--sand2);"></div>
+        <div class="cta-contact-item"><div class="cta-contact-lbl">Primera consulta</div><div class="cta-contact-val">Gratuita y sin compromiso</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-logo-wrap">
+        <svg width="30" height="30" viewBox="0 0 100 100" fill="none"><rect width="100" height="100" fill="#1B2E5E" rx="4"/><path d="M50 14 L80 36 L80 68 L64 68 L50 55 L36 68 L20 68 L20 36 Z" fill="none" stroke="#B8932A" stroke-width="3.5" stroke-linejoin="round"/><path d="M50 34 L62 44 L62 68 L38 68 L38 44 Z" fill="none" stroke="#B8932A" stroke-width="3.5" stroke-linejoin="round"/></svg>
+        <div><div class="footer-logo-main">AMG Financiaciones</div><div class="footer-logo-sub">Macarena Guijo Rodríguez</div></div>
+      </div>
+      <div class="footer-links"><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#testimonios">Testimonios</a><a href="#empieza">Contacto</a></div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener" class="social-btn" title="Facebook AMG Financiaciones">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social-btn" title="Instagram AMG Financiaciones">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 AMG Financiaciones · Todos los derechos reservados</span>
+      <div class="footer-legal"><a href="#">Política de privacidad</a><a href="#">Aviso legal</a></div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(){const m=document.getElementById('mobileMenu');const h=document.getElementById('hamburger');if(m.classList.contains('open')){closeMenu();}else{m.classList.add('open');h.classList.add('open');document.body.style.overflow='hidden';}}
+    function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('hamburger').classList.remove('open');document.body.style.overflow='';}
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const id=this.getAttribute('href').slice(1);if(!id)return;const el=document.getElementById(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}});});
+    const obs=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.animationPlayState='running';}});},{threshold:0.12});
+    document.querySelectorAll('.anim-up,.anim-left,.anim-right,.anim-scale').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el);});
+  </script>
+
+</body>
+</html>
